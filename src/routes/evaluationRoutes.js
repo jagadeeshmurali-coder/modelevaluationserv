@@ -3,10 +3,10 @@ const { evaluateInputs, analyzeData } = require('../controller/evaluationControl
 const multer = require('multer');
 
 const router = express.Router();
-const upload = multer();
+const upload = multer({ dest: 'uploads/' });
 
 // Route to evaluate inputs
-router.post('/evaluate', upload.single('pdfFile'), evaluateInputs);
+router.post('/evaluate', evaluateInputs);
 
 // Route to analyze data
 router.post('/analyze', analyzeData);

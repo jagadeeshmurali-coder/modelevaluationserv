@@ -4,7 +4,8 @@ const config = require('../config/config');
 
 const analyzeWithOpenAI = async ({ conversationHistory, userQuestion, botAnswer, context, metrics }) => {
   const prompt = `
-    Analyze the following conversation history and provide different types of scores based on the bots response to User Question for the specified metrics:
+    Analyze the following conversation history and provide different types of scores based on the bots response 
+    to User Question for the specified metrics to better assess the perfomance:
     
     Conversation History: ${conversationHistory}
     Latest User Question: ${userQuestion}

@@ -1,23 +1,11 @@
-const { processPdf } = require('../services/pdfUtils');
 const { analyzeWithOpenAI } = require('../services/openAIService');
 
 const evaluateInputs = async (req, res) => {
-  console.log('Received request body:', req.body);
-  
-  // Extracting the fields from req.body
-  const { conversationHistory, userQuestion, botAnswer, context, metrics, pdfFile } = req.body;
-  //const pdfFile = req.file; 
-  
+  const { conversationHistory, userQuestion, botAnswer, context, metrics } = req.body;
+
   try {
-    let conversationText = conversationHistory || '';
-
-    // If a PDF file is provided, extract text from it
-    if (pdfFile) {
-      conversationText = await processPdf(pdfFile); 
-    }
-
     const requestData = {
-      conversationHistory: conversationText,
+      conversationHistory,
       userQuestion,
       botAnswer,
       context,
@@ -35,8 +23,6 @@ const evaluateInputs = async (req, res) => {
 };
 
 const analyzeData = async (req, res) => {
-  console.log('Received analysis request body:', req.body);
-  
   const { conversationHistory, userQuestion, botAnswer, context, metrics } = req.body;
 
   try {
