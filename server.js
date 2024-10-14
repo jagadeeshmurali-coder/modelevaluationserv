@@ -13,7 +13,6 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Use evaluation routes
 app.use('/api', evaluationRoutes);
 
 app.listen(PORT, () => {

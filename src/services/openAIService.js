@@ -42,8 +42,6 @@ const analyzeWithOpenAI = async ({ conversationHistory, userQuestion, botAnswer,
     Metrics: ${JSON.parse(metrics)}
   `;
 
-//   console.log(prompt)
-
   const response = await axios.post('https://api.openai.com/v1/chat/completions', {
     model: "gpt-4o-mini", 
     messages: [{ role: "user", content: prompt }],
@@ -54,7 +52,6 @@ const analyzeWithOpenAI = async ({ conversationHistory, userQuestion, botAnswer,
     },
   });
 
-  console.log(response.data.choices[0].message.content);
   return response.data.choices[0].message.content;
 };
 
