@@ -49,11 +49,13 @@ This project provides a backend service for evaluating chatbot interactions. Use
 
     The server will run on http://localhost:5000.   
 
-API Endpoints
-POST /evaluate
+## API Endpoints
 
-Description: Evaluates the chatbot inputs.
-Request Body:
+### POST /evaluate
+
+**Description: Evaluates the chatbot inputs.**
+
+**Request Body:**
 {
   "conversationHistory": "string",
   "userQuestion": "string",
@@ -62,7 +64,7 @@ Request Body:
   "metrics": "JSON stringified object"
 }
 
-Response:
+**Response:**
 {
   "message": "Evaluation data processed successfully",
   "data": {
@@ -74,10 +76,10 @@ Response:
   }
 }
 
-POST /analyze
-Description: Analyzes the evaluation data using OpenAI.
+### POST /analyze
+**Description: Analyzes the evaluation data using OpenAI.**
 
-Request Body:
+**Request Body:**
 {
   "conversationHistory": "string",
   "userQuestion": "string",
@@ -86,7 +88,7 @@ Request Body:
   "metrics": "JSON stringified object"
 }
 
-Response:
+**Response:**
 {
   "message": "Analysis completed successfully",
   "result": {
@@ -98,7 +100,8 @@ Response:
   }
 }
 
-Example Requests
+### Example Requests
+
 Here is an example of how to make a request to the evaluate endpoint using curl:
 
 curl -X POST http://localhost:5000/evaluate \
